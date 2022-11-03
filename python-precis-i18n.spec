@@ -1,7 +1,7 @@
 %global srcname precis_i18n
 
 Name:		python-precis-i18n
-Version:	1.0.3
+Version:	1.0.4
 Release:	1
 Summary:	Internationalised Usernames and Passwords
 Group:		Development/Python
