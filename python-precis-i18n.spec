@@ -1,19 +1,19 @@
-%global srcname precis_i18n
+%define module precis-i18n
+%define oname precis_i18n
 
 Name:		python-precis-i18n
-Version:	1.0.4
-Release:	4
+Version:	1.1.2
+Release:	1
 Summary:	Internationalised Usernames and Passwords
 Group:		Development/Python
 License:	MIT
-URL:		https://pypi.python.org/pypi/%{srcname}
-Source0:	https://files.pythonhosted.org/packages/source/p/%{srcname}/%{srcname}-%{version}.tar.gz
+URL:		https://pypi.org/project/precis-i18n
+Source0:	https://files.pythonhosted.org/packages/source/p/%{module}/%{oname}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
+BuildSystem:	python
 BuildArch:	noarch
 BuildRequires:	pkgconfig(python)
-BuildRequires:	python3dist(setuptools)
-
-%{?python_provide:%python_provide python3-%{srcname}}
+BuildRequires:	python%{pyver}dist(setuptools)
 
 %description
 The PRECIS framework makes internationalised user names and
@@ -28,17 +28,11 @@ This module implements the PRECIS Framework as described in:
  - Preparation, Enforcement, and Comparison of Internationalized
    Strings Representing Nicknames (RFC 8266).
 
-
-%prep
-%setup -q -n %{srcname}-%{version}
-
-%build
-%py_build
-
-%install
-%py_install
+%prep -a
+# Remove bundled egg-info
+rm -rf %{oname}.egg-info
 
 %files
-%doc README.rst
-%{python_sitelib}/%{srcname}/
-%{python_sitelib}/%{srcname}*.egg-info
+%doc README.md
+%{python_sitelib}/%{oname}
+%{python_sitelib}/%{oname}-%{version}*.*-info
