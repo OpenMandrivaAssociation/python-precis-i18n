@@ -3,7 +3,7 @@
 
 Name:		python-precis-i18n
 Version:	1.1.2
-Release:	1
+Release:	2
 Summary:	Internationalised Usernames and Passwords
 Group:		Development/Python
 License:	MIT
